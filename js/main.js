@@ -23,7 +23,7 @@
     }
     }
 
-    if (login === true){
+     if (login === true){
     let ubicacion = prompt ("seleccione una ubicación")
 
     const seleccioneUbicacion = (ubicacion) => {
@@ -60,11 +60,8 @@
       console.log ("su precio a abonar es " + valorEstadia(tiempo, hora))
     }
 
-
-
-    const ubicaciones = ["azul", "rojo", "verde", "negro", "blanco"]
-
-        console.log(ubicaciones[3])
+ const ubicaciones = ["azul ", "rojo ", "verde ", "negro", "blanco"]
+    let ubicacion = prompt ("seleccione una ubicación " + ubicaciones)
 
         ubicaciones.push("gris")
 
@@ -75,8 +72,14 @@
             console.log("acabas de eliminar " + elementoEliminado)
 
             let ubicacionBuscada = prompt("ingrese una ubicacion")
-            ubicaciones.includes(ubicacionBuscada)
+           
             let existeUbicacion = ubicaciones.includes(ubicacionBuscada)
-            if (existeUbicacion === true) {
+
+if (existeUbicacion === true) {
+    console.log(ubicaciones.indexOf(ubicacionBuscada))
     console.log("La ubicación existe")
+    ubicaciones.splice(ubicaciones.indexOf(ubicacionBuscada), 1)
+} else {
+console.log ("ubicacion inexistente")
 }
+console.log("ubicaciones disponibles " + ubicaciones)
