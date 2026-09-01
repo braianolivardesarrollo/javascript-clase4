@@ -1,100 +1,82 @@
-//arrays 
+    alert ("bienvenido al estacionamiento automatico inteligente")
 
-const nombre = ["alberto", "carlos"];   
-//const numeros = [10, 28, 30];
-const boolenos = [true, false, true];
-const mixto = ["hola", 100, true];
-const objetos = [{}, {},{} ];
-const arrayVacio = [];
+    const contraseñaCorrecta = "2026"
+    let login = false;
+    let salir = false;
+    while (login === false && salir === false){
+  let contraseña = prompt("ingrese codigo de acceso")
 
-console.log (nombre);
-//console.log (numeros);
+  function accesoCorrecto(contraseña){
+    return contraseña === contraseñaCorrecta
+  }
 
-//indice          0   1   2   3  4
-const numeros = [10, 20, 30, 40, 50];
+  if (accesoCorrecto(contraseña) === true){
+    console.log ("acceso autorizado")
+    login = true
+  }
+    else { 
+        let volverAIntentar = prompt ("la contraseña es incorrecta, ¿quiere volver a colocar la contraseña (si/no)");
+    if (volverAIntentar === "no"){
+        console.log("acceso cancelado");
+        salir = true;
+    }
+    }
+    }
 
-// forma de visualizarlos
+    if (login === true){
+    let ubicacion = prompt ("seleccione una ubicación")
 
-console.log(numeros[2]);
-console.log(numeros[4]);
-console.log(numeros[0]);
-console.log(numeros[7]); //undefined
+    const seleccioneUbicacion = (ubicacion) => {
+    switch (ubicacion) {
+        case "norte":
+        console.log("ubicación norte seleccionada")
 
-console.log(numeros.length);
+        break
+        case "sur":
+        console.log("ubicación sur seleccionada")
 
-let resultado = numeros [0] + numeros [2];
-console.log(resultado); 
+        break
+        case "este":
+        console.log("ubicación este seleccionada")
 
-const alumnos = ["alberto", "betriz", "carlos", "diana", "eduardo"]
+        break
+        case "oeste":
+        console.log("ubicación oeste seleccionada")
 
-// for (let i=0; i <alumnos.length; i++) {
-//     console.log(alumnos[i]);
-// }
+        break
+        default :
+        console.log("lo siento ubicación inexistente")
+    }
+    }
+    seleccioneUbicacion(ubicacion)
+    }
 
-// const productos = ["lavandina", "jabon", "pan", "leche"]
+    if (login === true){
+      let tiempo = parseInt(prompt ("indique la duracion de su estadia"))
+      const hora = 18
+      const valorEstadia = (tiempo, hora) =>{
+        return tiempo * hora
+      } 
+      console.log ("su precio a abonar es " + valorEstadia(tiempo, hora))
+    }
 
-// for (let i=0; i <productos.length; i++) {
-//     console.log(productos[i]);
-// }
 
 
-// for...of
+    const ubicaciones = ["azul", "rojo", "verde", "negro", "blanco"]
 
-for (const alumno of alumnos) {
-    console.log(alumno);
+        console.log(ubicaciones[3])
+
+        ubicaciones.push("gris")
+
+        ubicaciones.unshift("violeta")
+
+            let elementoEliminado =  ubicaciones.pop()
+
+            console.log("acabas de eliminar " + elementoEliminado)
+
+            let ubicacionBuscada = prompt("ingrese una ubicacion")
+            ubicaciones.includes(ubicacionBuscada)
+            let existeUbicacion = ubicaciones.includes(ubicacionBuscada)
+            if (existeUbicacion === true) {
+    console.log("La ubicación existe")
 }
-
-const compras = ["leche", "pan", "huevo", "queso", "manteca"]
-console.log(compras)
-
-//metodos
-
-//push() - agregar uno o mas elementos al final de un array
-
-compras.push("azucar");
-console.log(compras);
-compras.push("cafe"),
-console.log(compras);
-
-
-//pop() - elimina el ultimo elemento de un array y lo devuelve
-
-compras.pop();
-console.log(compras);
-
-//shift() - elimina el primer elemento de un array y lo devuelve
-
-compras.shift();
-console.log(compras);
-
-//unshift() - agrega uno o mas elementos al inicio de un array
-
-compras.unshift("leche");
-console.log(compras);
-
-compras.unshift("dulce de leche");
-console.log(compras);
-
-//indexof() - devulve el primer inice en el que se encuentra un prodcuto
-
-console.log(compras.indexOf("leche"));
-
-//includes() - determina si un array incluye un determinado elemento
-
-console.log(compras.includes("facturas"));
-
-//sort() - ordena los elementos de un array alfabeticamente
-
-compras.sort();
-console.log(compras);
-
-console.log(compras [3]);
-
-// reverse() - invierte el origen de los elementos de un array
-
-compras.reverse();
-console.log(compras);
-
-//join() - une todos los elementos de un array en una cadena de texto
-
-console.log(compras.join(","));
