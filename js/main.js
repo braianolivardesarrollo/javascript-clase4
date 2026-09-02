@@ -3,12 +3,13 @@
     const contraseñaCorrecta = "2026"
     let login = false;
     let salir = false;
-    while (login === false && salir === false){
-  let contraseña = prompt("ingrese codigo de acceso")
 
-  function accesoCorrecto(contraseña){
+function accesoCorrecto(contraseña){
     return contraseña === contraseñaCorrecta
   }
+
+    while (login === false && salir === false){
+  let contraseña = prompt("ingrese codigo de acceso")
 
   if (accesoCorrecto(contraseña) === true){
     console.log ("acceso autorizado")
@@ -19,37 +20,47 @@
     if (volverAIntentar === "no"){
         console.log("acceso cancelado");
         salir = true;
+        }
+      }
     }
+
+ const ubicaciones = ["azul", "rojo", "verde", "negro", "blanco"]
+
+function mostrarUbicaciones() {
+    let ubicacionesDisponibles = [];
+
+    for (let ubicacion of ubicaciones) {
+        ubicacionesDisponibles.push(ubicacion);
     }
-    }
+
+    return ubicacionesDisponibles;
+}
 
      if (login === true){
-    let ubicacion = prompt ("seleccione una ubicación")
 
-    const seleccioneUbicacion = (ubicacion) => {
-    switch (ubicacion) {
-        case "norte":
-        console.log("ubicación norte seleccionada")
+     ubicaciones.push("gris")
 
-        break
-        case "sur":
-        console.log("ubicación sur seleccionada")
+     ubicaciones.unshift("violeta")
 
-        break
-        case "este":
-        console.log("ubicación este seleccionada")
+     let elementoEliminado =  ubicaciones.pop()
 
-        break
-        case "oeste":
-        console.log("ubicación oeste seleccionada")
+     alert("la ubicacion " + elementoEliminado + " acaba de ser ocupada")
 
-        break
-        default :
-        console.log("lo siento ubicación inexistente")
+     let ubicacionesDisponibles = mostrarUbicaciones();
+
+let ubicacionBuscada = prompt("ingrese una ubicacion " + ubicacionesDisponibles.join(", "))
+           
+let existeUbicacion = ubicaciones.includes(ubicacionBuscada)
+
+if (existeUbicacion === true) {
+    ubicaciones.splice(ubicaciones.indexOf(ubicacionBuscada), 1)
+} else {
+console.log ("ubicacion inexistente")
+}
+console.log("ubicacion elegida: " + ubicacionBuscada)
     }
-    }
-    seleccioneUbicacion(ubicacion)
-    }
+
+    console.log("ubicaciones disponibles " + ubicaciones)
 
     if (login === true){
       let tiempo = parseInt(prompt ("indique la duracion de su estadia"))
@@ -59,27 +70,3 @@
       } 
       console.log ("su precio a abonar es " + valorEstadia(tiempo, hora))
     }
-
- const ubicaciones = ["azul ", "rojo ", "verde ", "negro", "blanco"]
-    let ubicacion = prompt ("seleccione una ubicación " + ubicaciones)
-
-        ubicaciones.push("gris")
-
-        ubicaciones.unshift("violeta")
-
-            let elementoEliminado =  ubicaciones.pop()
-
-            console.log("acabas de eliminar " + elementoEliminado)
-
-            let ubicacionBuscada = prompt("ingrese una ubicacion")
-           
-            let existeUbicacion = ubicaciones.includes(ubicacionBuscada)
-
-if (existeUbicacion === true) {
-    console.log(ubicaciones.indexOf(ubicacionBuscada))
-    console.log("La ubicación existe")
-    ubicaciones.splice(ubicaciones.indexOf(ubicacionBuscada), 1)
-} else {
-console.log ("ubicacion inexistente")
-}
-console.log("ubicaciones disponibles " + ubicaciones)
