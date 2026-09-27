@@ -27,13 +27,14 @@ function accesoCorrecto(contraseña){
  const ubicaciones = ["azul", "rojo", "verde", "negro", "blanco"]
 
 function mostrarUbicaciones() {
-    let ubicacionesDisponibles = [];
+
+    console.log("--- Ubicaciones disponibles ---");
 
     for (let ubicacion of ubicaciones) {
-        ubicacionesDisponibles.push(ubicacion);
-    }
 
-    return ubicacionesDisponibles;
+        console.log("Ubicación disponible: " + ubicacion);
+
+    }
 }
 
      if (login === true){
@@ -46,16 +47,21 @@ function mostrarUbicaciones() {
 
      alert("la ubicacion " + elementoEliminado + " acaba de ser ocupada")
 
-     let ubicacionesDisponibles = mostrarUbicaciones();
+     mostrarUbicaciones()
 
-let ubicacionBuscada = prompt("ingrese una ubicacion " + ubicacionesDisponibles.join(", "))
+let ubicacionBuscada = prompt("Ingrese una ubicación")
            
 let existeUbicacion = ubicaciones.includes(ubicacionBuscada)
 
 if (existeUbicacion === true) {
-    ubicaciones.splice(ubicaciones.indexOf(ubicacionBuscada), 1)
+    let indiceUbicacion = ubicaciones.indexOf(ubicacionBuscada)
+
+    console.log("La ubicación " + ubicacionBuscada + " se encuentra en el índice " + indiceUbicacion)
+
+    ubicaciones.splice(indiceUbicacion, 1, "ocupada")
+
 } else {
-console.log ("ubicacion inexistente")
+    console.log("ubicacion inexistente")
 }
 console.log("ubicacion elegida: " + ubicacionBuscada)
     }
